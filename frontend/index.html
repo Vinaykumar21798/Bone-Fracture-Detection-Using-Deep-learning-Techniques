@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI-Based Bone Fracture Detection</title>
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+      <h1>AI-Based Bone Fracture Detection</h1>
+      <p class="subtitle">
+        AI-assisted X-ray analysis with clinical explainability
+      </p>
+    </header>
+
+    <!-- ================= UPLOAD SECTION ================= -->
+    <section class="upload-section">
+      <form id="upload-form" onsubmit="return false;">
+        <input
+          type="file"
+          id="imageInput"
+          accept="image/*"
+          required
+        />
+
+        <button type="button" id="analyzeBtn" disabled>
+          Analyze X-ray
+        </button>
+      </form>
+
+      <!-- Loading -->
+      <div id="loading" class="loading hidden">
+        Analyzing X-ray image…
+      </div>
+    </section>
+
+    <!-- ================= RESULTS ================= -->
+    <section id="result" class="result hidden">
+
+      <!-- ===== Clinical Summary ===== -->
+      <div class="card summary-card">
+        <h2>Clinical Summary</h2>
+
+        <div class="summary-grid">
+          <p><strong>Anatomical Region:</strong> <span id="bone">—</span></p>
+          <p><strong>Fracture Status:</strong> <span id="fracture">—</span></p>
+          <p><strong>Confidence Score:</strong> <span id="confidence">—</span></p>
+          <p><strong>Displacement Angle:</strong> <span id="angle">—</span>°</p>
+          <p><strong>Severity Level:</strong> <span id="severity">—</span></p>
+        </div>
+      </div>
+
+      <!-- ===== Visual Evidence ===== -->
+      <div class="card visual-card">
+        <h2>Visual Evidence</h2>
+
+        <div class="visual-container">
+          <div class="visual-box">
+            <p class="visual-title">Region of Interest (ROI)</p>
+            <img id="roiImage" alt="ROI Image" />
+          </div>
+
+          <div class="visual-box">
+            <p class="visual-title">Grad-CAM Heatmap</p>
+            <img id="gradcamImage" alt="Grad-CAM Heatmap" />
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Recommendation ===== -->
+      <div class="card recommendation-card">
+        <h2>Clinical Recommendation</h2>
+        <pre id="recommendation">—</pre>
+      </div>
+
+      <!-- ===== Download PDF ===== -->
+      <div class="card download-card">
+        <button id="downloadPdfBtn" disabled>
+          Download Clinical Report (PDF)
+        </button>
+      </div>
+
+      <!-- ===== Disclaimer ===== -->
+      <div class="card disclaimer-card">
+        <p class="disclaimer">
+          This AI-generated report is intended to assist clinical decision-making
+          and must not replace professional medical judgment.
+        </p>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- ================= SCRIPTS ================= -->
+
+  <!-- jsPDF (for frontend PDF generation) -->
+  <script src="https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+  <!-- Application Logic -->
+  <script src="/static/script.js"></script>
+
+</body>
+</html>

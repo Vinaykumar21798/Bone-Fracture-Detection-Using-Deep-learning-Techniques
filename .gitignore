@@ -1,0 +1,41 @@
+# ======================
+# Python
+# ======================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ======================
+# Virtual Environment
+# ======================
+venv/
+.venv/
+
+# ======================
+# Datasets (DO NOT PUSH)
+# ======================
+Dataset/
+test/
+train/
+valid/
+
+# ======================
+# Model weights (optional)
+# ======================
+weights/*.h5
+
+# ======================
+# Outputs & results
+# ======================
+PredictResults/
+plots/
+logs/
+
+# ======================
+# OS / Editor
+# ======================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
